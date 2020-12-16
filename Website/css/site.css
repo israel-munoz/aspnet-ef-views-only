@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 400 16px 'segoe ui', sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+button,
+select {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: 600;
+    height: 2em;
+}
+
+.controls {
+    font-size: 120%;
+    flex: 0 20em;
+    height: 100%;
+    padding: 1em;
+}
+
+.controls .control {
+    margin-bottom: 1em;
+}
+
+.controls label {
+    display: block;
+    font-size: 80%;
+}
+
+.controls select,
+.controls button {
+    width: 100%;
+}
+
+.controls button {
+    --bgl: 90%;
+    --cl: 30%;
+    --pos: 0;
+    --shadow: 1px;
+    color: hsl(192, 52%, var(--cl));
+    background-color: hsl(192, 52%, var(--bgl));
+    box-shadow: var(--shadow) var(--shadow) 0 var(--shadow) hsl(192, 52%, var(--cl));
+    border-radius: .6rem;
+    outline: none;
+    transform: translate(var(--pos), var(--pos));
+    transition: background-color linear .2s, box-shadow linear .2s, color linear .2s, transform linear .2s;
+}
+
+.controls button:hover,
+.controls button:focus {
+    --bgl: 96%;
+    --cl: 36%;
+}
+
+.controls button:active {
+    --pos: 1px;
+    --shadow: 0;
+}
+
+.grid {
+    flex: 1;
+    height: 100%;
+    padding: 1rem;
+}
+
+.grid.loading::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    border: solid 5px transparent;
+    border-top-color: hsl(192, 52%, 36%);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: calc(20% - 50px);
+    left: calc(50% - 50px);
+    animation: loading .5s infinite linear;
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.grid table {
+    border-collapse: collapse;
+    font-size: 120%;
+    width: 100%;
+}
+
+.grid table th,
+.grid table td {
+    padding: .25em .5em;
+}
+
+.grid table thead th {
+    border-bottom: solid 2px hsl(192, 52%, 36%);
+}
+
+.grid .small {
+    width: 20%;
+}
+
+.grid .big {
+    width: 30%;
+}
+
+.grid .center {
+    text-align: center;
+}

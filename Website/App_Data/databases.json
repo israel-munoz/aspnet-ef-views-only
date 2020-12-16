@@ -1,0 +1,10 @@
+﻿[
+  {
+    "name": "Database One",
+    "connectionString": "database1"
+  },
+  {
+    "name": "Database Two",
+    "connectionString": "database2"
+  }
+]
